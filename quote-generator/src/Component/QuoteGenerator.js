@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 function QuoteGenerator() {
-  const [quote, setQuote] = useState('');
-  const [author, setAuthor] = useState('');
+  const [quote, setQuote] = useState('Click to get a new quote');
+  const [author, setAuthor] = useState('Author Name');
   const [loading, setLoading] = useState(false);
 
   const fetchQuote = async () => {
     setLoading(true);
     try {
-      const response = await fetch('https://api.quotable.io/random');
+      const response = await fetch('https://api-ninjas.com/api/quotes');
       const data = await response.json();
       setQuote(data.content);
       setAuthor(data.author);
